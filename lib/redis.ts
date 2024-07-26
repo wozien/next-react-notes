@@ -1,5 +1,5 @@
 import Redis from "ioredis";
-import type { Notes } from '@/types';
+import type { Notes, NoteItem } from '@/types';
 
 const redis = new Redis();
 
@@ -33,7 +33,7 @@ export async function updateNote(uuid: string, data: string) {
 }
 
 export async function getNote(uuid: string) {
-  return JSON.parse(await redis.hget('notes', uuid) || '');
+  return JSON.parse(await redis.hget('notes', uuid) || '{}') as NoteItem;
 }
 
 export async function delNote(uuid: string) {

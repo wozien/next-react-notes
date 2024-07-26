@@ -1,5 +1,5 @@
 ## :bookmark: Web Notes
-web notes app create by Next.js :kissing_heart:
+web notes app create by Next.js :kissing_heart:.We can learn many magic feature from Next like: App Router + SCR + Server Action.
 
 ## Start
 

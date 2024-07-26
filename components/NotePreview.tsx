@@ -20,7 +20,7 @@ const allowedAttributes = Object.assign(
   }
 );
 
-export default async function NotePreview({ content }: IProps) {
+export default function NotePreview({ content }: IProps) {
 
   return (
     <div className='note-preview'>

@@ -7,3 +7,6 @@ export interface NoteItem {
 
 export type Notes = Record<string, string>;
 
+export type INoteEditorState = {
+  message?: string;
+} | void;

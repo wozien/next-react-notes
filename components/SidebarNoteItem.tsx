@@ -23,7 +23,7 @@ export default function SidebarNoteItem({ noteId, note }: IProps) {
       {/* 这里会先在改服务端组件渲染，然后再传给 SidebarNoteItemContent 组件，dayjs不会进客户端bundle中 */}
       <header className="sidebar-note-header">
         <strong>{title}</strong>
-        <small>{dayjs(updateTime).format('YYYY-MM-DD hh:mm:ss')}</small>
+        <small>{dayjs(updateTime).format('YYYY-MM-DD HH:mm:ss')}</small>
       </header>
     </SidebarNoteItemContent>
   )
