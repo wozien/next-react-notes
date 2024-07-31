@@ -1,6 +1,7 @@
 import { getAllNotes } from "@/lib/redis";
 import { sleep } from '@/lib/utils'
-import SidebarNoteItem from "@/components/SidebarNoteItem";
+import SidebarNoteListFilter from "./SidebarNoteListFilter";
+import SidebarNoteItem from "./SidebarNoteItem";
 
 export default async function NoteList() {
   // 为了更加清晰看到骨架屏效果，延迟1s渲染
@@ -15,16 +16,14 @@ export default async function NoteList() {
   }
 
   return (
-    <ul className="notes-list">
-      {
-        arr.map(([noteId, note]) => {
-          return (
-            <li key={noteId}>
-              <SidebarNoteItem noteId={noteId} note={JSON.parse(note)} />
-            </li>
-          )
-        })
-      }
-    </ul>
-  )
+    <SidebarNoteListFilter  
+      notes={arr.map(([noteId, note]) => {
+        return {
+          noteId,
+          note: JSON.parse(note),
+          item: <SidebarNoteItem key={noteId} noteId={noteId} note={JSON.parse(note)} />
+        }
+      })}
+    />
+  );
 }

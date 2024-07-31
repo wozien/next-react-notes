@@ -39,6 +39,7 @@ export default function NoteEditor({
         </div>
         <div className="note-editor-menu">
           { saveState?.message }
+          { saveState?.errors && saveState.errors[0]?.message } 
         </div>
         <label className="offscreen" htmlFor="note-title-input">
           Enter a title for your note
