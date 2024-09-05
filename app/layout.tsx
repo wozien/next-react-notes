@@ -1,4 +1,5 @@
 import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
 import type { Metadata } from "next";
 import "./style.css";
 
@@ -18,7 +19,10 @@ export default function RootLayout({
         <div className="container">
           <div className="main">
             <Sidebar />
-            <section className="col note-viewer">{children}</section>
+            <section className="col note-viewer">
+              <Header />
+              {children}
+            </section>
           </div>
         </div>
       </body>

@@ -419,8 +419,18 @@ ul.notes-list {
 
 .note-viewer {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 40px;
+    /* align-items: center;
+    justify-content: center; */
+}
+.header {
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
 }
 .note {
     background: var(--white);
@@ -428,14 +438,18 @@ ul.notes-list {
         0px 0px 5px rgba(0, 0, 0, 0.1),
         0px 0px 1px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    height: 95%;
-    width: 95%;
+    /* height: 95%; */
+    flex: 1;
     min-width: 400px;
     padding: 8%;
     overflow-y: auto;
 }
 .note--empty-state {
     margin-inline: 20px 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .note-text--empty-state {
     font-size: 1.5rem;
