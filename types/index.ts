@@ -2,7 +2,7 @@
 export interface NoteItem {
   title: string;
   content: string;
-  updateTime: string;
+  updateTime: Date;
 };
 
 export type Notes = Record<string, string>;

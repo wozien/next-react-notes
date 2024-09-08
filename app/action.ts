@@ -3,7 +3,7 @@
 import { stat, writeFile, mkdir } from 'fs/promises'
 import { join } from "path";
 import { redirect } from "next/navigation";
-import { updateNote, addNote, delNote } from "@/lib/strapi";
+import { updateNote, addNote, delNote } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { z } from 'zod';
 import { INoteEditorState } from "@/types";

@@ -1,4 +1,4 @@
-import { getNote } from "@/lib/strapi"
+import { getNote } from "@/lib/prisma"
 import { sleep } from "@/lib/utils";
 import Note from "@/components/Note";
 
@@ -15,7 +15,7 @@ export default async function Page({ params }: NotePageProps) {
   // 让骨架屏效果更加明显
   await sleep(1000)
 
-  if (note === null) {
+  if (!note) {
     return (
       <div className="note--empty-state">
         <span className="note-text--empty-state">

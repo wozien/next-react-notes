@@ -1,4 +1,4 @@
-import { getNote } from "@/lib/strapi";
+import { getNote } from "@/lib/prisma";
 import { sleep } from "@/lib/utils";
 import NoteEditor from "@/components/NoteEditor";
 
@@ -14,7 +14,7 @@ export default async function Page({ params }: IPageProps) {
 
   await sleep(1000);
 
-  if (note === null) {
+  if (!note) {
     return (
       <div className="note--empty-state">
         <span className="note-text--empty-state">

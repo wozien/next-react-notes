@@ -35,7 +35,10 @@ export default async function Header() {
       {
         session?.user ?
           <>
-            <Image src={session.user?.image as string} alt="" width={40} height={40} style={{ borderRadius: '100%' }}/>
+            {
+              session.user?.image &&
+              <Image src={session.user?.image as string} alt="" width={40} height={40} style={{ borderRadius: '100%' }}/>
+            }
             <span>{session.user?.name}</span>
             <SignOut />
           </>

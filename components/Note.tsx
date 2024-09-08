@@ -5,10 +5,12 @@ import type { NoteItem } from  '@/types';
 
 type NoteProps = {
   noteId: string;
-  note: NoteItem
+  note?: NoteItem
 }
 
 export default function Note({ noteId, note }: NoteProps) {
+  if (!note) return <></>
+  
   const { title, content, updateTime } = note;
 
   return (
