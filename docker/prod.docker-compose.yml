@@ -1,0 +1,42 @@
+version: '3'
+
+networks:
+  react-notes-prod:
+    driver: bridge
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: notes-mysql-prod
+    command: --default-authentication-plugin=caching_sha2_password
+    restart: unless-stopped
+    # volumes:
+    #   - ./data/mysql/:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=notes
+      - MYSQL_USER=notes
+      - MYSQL_PASSWORD=cpZfriEBbmJjWeiR
+    ports:
+      - '3306:3306'
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h127.0.0.1', '-P3306']
+      interval: 5s
+      timeout: 2s
+      retries: 20
+    networks:
+      - react-notes-prod
+  
+  next-react-notes-prod:
+    container_name: next-react-notes-prod
+    build: 
+      context: ../
+      dockerfile: ./docker/prod.Dockerfile
+    restart: always
+    ports:
+      - '3000:3000'
+    networks:
+      - react-notes-prod
+    depends_on:
+      mysql:
+        condition: service_healthy

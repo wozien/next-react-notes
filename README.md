@@ -6,6 +6,9 @@ web notes app create by Next.js :kissing_heart:.We can learn many magic feature 
 ```bash
 pnpm install
 pnpm run dev
+
+## with docker
+pnpm run dev:docker
 ```
 
 ## Links 
